@@ -1,10 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <time.h>
 
 int
 main(int argc, char *argv[])
 {
+    time_t t;
+    time(&t);
+    printf("\n%s", ctime(&t));
     printf("hello world (pid:%d)\n", (int) getpid());
     int rc = fork();
     if (rc < 0) {
